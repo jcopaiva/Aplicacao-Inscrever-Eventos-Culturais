@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Pessoa" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_IService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://wspessoa.azurewebsites.net/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://wspessoa.azurewebsites.net/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://wspessoa.azurewebsites.net/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetDataUsingDataContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetDataUsingDataContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_CheckLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckLogin" />
+  </wsdl:message>
+  <wsdl:message name="IService_CheckLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_CheckRegisto_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRegisto" />
+  </wsdl:message>
+  <wsdl:message name="IService_CheckRegisto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRegistoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_EfetuaReserva_InputMessage">
+    <wsdl:part name="parameters" element="tns:EfetuaReserva" />
+  </wsdl:message>
+  <wsdl:message name="IService_EfetuaReserva_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EfetuaReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveReserva_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveReserva" />
+  </wsdl:message>
+  <wsdl:message name="IService_RemoveReserva_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ExisteReserva_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteReserva" />
+  </wsdl:message>
+  <wsdl:message name="IService_ExisteReserva_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExisteReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_EliminaPessoa_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaPessoa" />
+  </wsdl:message>
+  <wsdl:message name="IService_EliminaPessoa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaPessoaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAllUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPessoa_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPessoa" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPessoa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPessoaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetData" message="tns:IService_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetDataResponse" message="tns:IService_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetDataUsingDataContract" message="tns:IService_GetDataUsingDataContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetDataUsingDataContractResponse" message="tns:IService_GetDataUsingDataContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/CheckLogin" message="tns:IService_CheckLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/CheckLoginResponse" message="tns:IService_CheckLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckRegisto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/CheckRegisto" message="tns:IService_CheckRegisto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/CheckRegistoResponse" message="tns:IService_CheckRegisto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EfetuaReserva">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/EfetuaReserva" message="tns:IService_EfetuaReserva_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/EfetuaReservaResponse" message="tns:IService_EfetuaReserva_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveReserva">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RemoveReserva" message="tns:IService_RemoveReserva_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RemoveReservaResponse" message="tns:IService_RemoveReserva_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteReserva">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ExisteReserva" message="tns:IService_ExisteReserva_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ExisteReservaResponse" message="tns:IService_ExisteReserva_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminaPessoa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/EliminaPessoa" message="tns:IService_EliminaPessoa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/EliminaPessoaResponse" message="tns:IService_EliminaPessoa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllUsers" message="tns:IService_GetAllUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllUsersResponse" message="tns:IService_GetAllUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPessoa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetPessoa" message="tns:IService_GetPessoa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetPessoaResponse" message="tns:IService_GetPessoa_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IService/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/IService/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckLogin">
+      <soap:operation soapAction="http://tempuri.org/IService/CheckLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckRegisto">
+      <soap:operation soapAction="http://tempuri.org/IService/CheckRegisto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EfetuaReserva">
+      <soap:operation soapAction="http://tempuri.org/IService/EfetuaReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveReserva">
+      <soap:operation soapAction="http://tempuri.org/IService/RemoveReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteReserva">
+      <soap:operation soapAction="http://tempuri.org/IService/ExisteReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminaPessoa">
+      <soap:operation soapAction="http://tempuri.org/IService/EliminaPessoa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPessoa">
+      <soap:operation soapAction="http://tempuri.org/IService/GetPessoa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_IService" type="tns:IService">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_IService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IService/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/IService/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckLogin">
+      <soap:operation soapAction="http://tempuri.org/IService/CheckLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckRegisto">
+      <soap:operation soapAction="http://tempuri.org/IService/CheckRegisto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EfetuaReserva">
+      <soap:operation soapAction="http://tempuri.org/IService/EfetuaReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveReserva">
+      <soap:operation soapAction="http://tempuri.org/IService/RemoveReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteReserva">
+      <soap:operation soapAction="http://tempuri.org/IService/ExisteReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminaPessoa">
+      <soap:operation soapAction="http://tempuri.org/IService/EliminaPessoa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPessoa">
+      <soap:operation soapAction="http://tempuri.org/IService/GetPessoa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Pessoa">
+    <wsdl:port name="BasicHttpBinding_IService" binding="tns:BasicHttpBinding_IService">
+      <soap:address location="http://wspessoa.azurewebsites.net/Service.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_IService" binding="tns:BasicHttpsBinding_IService">
+      <soap:address location="https://wspessoa.azurewebsites.net/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
