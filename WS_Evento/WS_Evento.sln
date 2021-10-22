@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WS_Evento", "WS_Evento\", "{F81B3B56-5EA2-4CBA-868A-7F06A364122F}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_62789"
+		Debug.AspNetCompiler.PhysicalPath = "WS_Evento\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62789\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_62789"
+		Release.AspNetCompiler.PhysicalPath = "WS_Evento\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62789\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "62789"
+		SlnRelativePath = "WS_Evento\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F81B3B56-5EA2-4CBA-868A-7F06A364122F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F81B3B56-5EA2-4CBA-868A-7F06A364122F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F1ECE393-1903-4676-839B-40044D840F99}
+	EndGlobalSection
+EndGlobal
