@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://temp123.pt" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://temp123.pt" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Descricao temporaria</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://temp123.pt">
+      <s:element name="ResultadoLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResultadoLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResultadoLoginResult" type="tns:PessoaS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PessoaS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ExtensionData" type="tns:ExtensionDataObject" />
+          <s:element minOccurs="1" maxOccurs="1" name="Bi" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Idade" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localidade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Tipo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExtensionDataObject" />
+      <s:element name="ResultadoRegisto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="localidade" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idade" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bi" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResultadoRegistoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResultadoRegistoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResEfetuaReserva">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResEfetuaReservaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResEfetuaReservaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResRemoveReserva">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResRemoveReservaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResRemoveReservaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResEliminaPessoa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResEliminaPessoaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResEliminaPessoaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResListaPessoas">
+        <s:complexType />
+      </s:element>
+      <s:element name="ResListaPessoasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResListaPessoasResult" type="tns:ArrayOfPessoaS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPessoaS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PessoaS" nillable="true" type="tns:PessoaS" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ResExisteReserva">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pessoa" type="tns:PessoaS" />
+            <s:element minOccurs="0" maxOccurs="1" name="evento" type="tns:EventoS2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EventoS2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ExtensionData" type="tns:ExtensionDataObject" />
+          <s:element minOccurs="1" maxOccurs="1" name="Capacidade" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localizacao" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Lotacao" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ResExisteReservaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResExisteReservaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResCriarEvento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="local" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lotacao" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="capacidade" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResCriarEventoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResCriarEventoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResEliminaEvento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResEliminaEventoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResEliminaEventoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResListaEventos">
+        <s:complexType />
+      </s:element>
+      <s:element name="ResListaEventosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResListaEventosResult" type="tns:ArrayOfEventoS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEventoS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EventoS" nillable="true" type="tns:EventoS" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EventoS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ExtensionData" type="tns:ExtensionDataObject" />
+          <s:element minOccurs="1" maxOccurs="1" name="Capacidade" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localizacao" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Lotacao" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ResEscolherEvento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResEscolherEventoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResEscolherEventoResult" type="tns:EventoS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ResultadoLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:ResultadoLogin" />
+  </wsdl:message>
+  <wsdl:message name="ResultadoLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:ResultadoLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResultadoRegistoSoapIn">
+    <wsdl:part name="parameters" element="tns:ResultadoRegisto" />
+  </wsdl:message>
+  <wsdl:message name="ResultadoRegistoSoapOut">
+    <wsdl:part name="parameters" element="tns:ResultadoRegistoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResEfetuaReservaSoapIn">
+    <wsdl:part name="parameters" element="tns:ResEfetuaReserva" />
+  </wsdl:message>
+  <wsdl:message name="ResEfetuaReservaSoapOut">
+    <wsdl:part name="parameters" element="tns:ResEfetuaReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResRemoveReservaSoapIn">
+    <wsdl:part name="parameters" element="tns:ResRemoveReserva" />
+  </wsdl:message>
+  <wsdl:message name="ResRemoveReservaSoapOut">
+    <wsdl:part name="parameters" element="tns:ResRemoveReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResEliminaPessoaSoapIn">
+    <wsdl:part name="parameters" element="tns:ResEliminaPessoa" />
+  </wsdl:message>
+  <wsdl:message name="ResEliminaPessoaSoapOut">
+    <wsdl:part name="parameters" element="tns:ResEliminaPessoaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResListaPessoasSoapIn">
+    <wsdl:part name="parameters" element="tns:ResListaPessoas" />
+  </wsdl:message>
+  <wsdl:message name="ResListaPessoasSoapOut">
+    <wsdl:part name="parameters" element="tns:ResListaPessoasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResExisteReservaSoapIn">
+    <wsdl:part name="parameters" element="tns:ResExisteReserva" />
+  </wsdl:message>
+  <wsdl:message name="ResExisteReservaSoapOut">
+    <wsdl:part name="parameters" element="tns:ResExisteReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResCriarEventoSoapIn">
+    <wsdl:part name="parameters" element="tns:ResCriarEvento" />
+  </wsdl:message>
+  <wsdl:message name="ResCriarEventoSoapOut">
+    <wsdl:part name="parameters" element="tns:ResCriarEventoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResEliminaEventoSoapIn">
+    <wsdl:part name="parameters" element="tns:ResEliminaEvento" />
+  </wsdl:message>
+  <wsdl:message name="ResEliminaEventoSoapOut">
+    <wsdl:part name="parameters" element="tns:ResEliminaEventoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResListaEventosSoapIn">
+    <wsdl:part name="parameters" element="tns:ResListaEventos" />
+  </wsdl:message>
+  <wsdl:message name="ResListaEventosSoapOut">
+    <wsdl:part name="parameters" element="tns:ResListaEventosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResEscolherEventoSoapIn">
+    <wsdl:part name="parameters" element="tns:ResEscolherEvento" />
+  </wsdl:message>
+  <wsdl:message name="ResEscolherEventoSoapOut">
+    <wsdl:part name="parameters" element="tns:ResEscolherEventoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CentralServicoSoap">
+    <wsdl:operation name="ResultadoLogin">
+      <wsdl:input message="tns:ResultadoLoginSoapIn" />
+      <wsdl:output message="tns:ResultadoLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResultadoRegisto">
+      <wsdl:input message="tns:ResultadoRegistoSoapIn" />
+      <wsdl:output message="tns:ResultadoRegistoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResEfetuaReserva">
+      <wsdl:input message="tns:ResEfetuaReservaSoapIn" />
+      <wsdl:output message="tns:ResEfetuaReservaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResRemoveReserva">
+      <wsdl:input message="tns:ResRemoveReservaSoapIn" />
+      <wsdl:output message="tns:ResRemoveReservaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResEliminaPessoa">
+      <wsdl:input message="tns:ResEliminaPessoaSoapIn" />
+      <wsdl:output message="tns:ResEliminaPessoaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResListaPessoas">
+      <wsdl:input message="tns:ResListaPessoasSoapIn" />
+      <wsdl:output message="tns:ResListaPessoasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResExisteReserva">
+      <wsdl:input message="tns:ResExisteReservaSoapIn" />
+      <wsdl:output message="tns:ResExisteReservaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResCriarEvento">
+      <wsdl:input message="tns:ResCriarEventoSoapIn" />
+      <wsdl:output message="tns:ResCriarEventoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResEliminaEvento">
+      <wsdl:input message="tns:ResEliminaEventoSoapIn" />
+      <wsdl:output message="tns:ResEliminaEventoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResListaEventos">
+      <wsdl:input message="tns:ResListaEventosSoapIn" />
+      <wsdl:output message="tns:ResListaEventosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResEscolherEvento">
+      <wsdl:input message="tns:ResEscolherEventoSoapIn" />
+      <wsdl:output message="tns:ResEscolherEventoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CentralServicoSoap" type="tns:CentralServicoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ResultadoLogin">
+      <soap:operation soapAction="http://temp123.pt/ResultadoLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResultadoRegisto">
+      <soap:operation soapAction="http://temp123.pt/ResultadoRegisto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResEfetuaReserva">
+      <soap:operation soapAction="http://temp123.pt/ResEfetuaReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResRemoveReserva">
+      <soap:operation soapAction="http://temp123.pt/ResRemoveReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResEliminaPessoa">
+      <soap:operation soapAction="http://temp123.pt/ResEliminaPessoa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResListaPessoas">
+      <soap:operation soapAction="http://temp123.pt/ResListaPessoas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResExisteReserva">
+      <soap:operation soapAction="http://temp123.pt/ResExisteReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResCriarEvento">
+      <soap:operation soapAction="http://temp123.pt/ResCriarEvento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResEliminaEvento">
+      <soap:operation soapAction="http://temp123.pt/ResEliminaEvento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResListaEventos">
+      <soap:operation soapAction="http://temp123.pt/ResListaEventos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResEscolherEvento">
+      <soap:operation soapAction="http://temp123.pt/ResEscolherEvento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CentralServicoSoap12" type="tns:CentralServicoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ResultadoLogin">
+      <soap12:operation soapAction="http://temp123.pt/ResultadoLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResultadoRegisto">
+      <soap12:operation soapAction="http://temp123.pt/ResultadoRegisto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResEfetuaReserva">
+      <soap12:operation soapAction="http://temp123.pt/ResEfetuaReserva" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResRemoveReserva">
+      <soap12:operation soapAction="http://temp123.pt/ResRemoveReserva" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResEliminaPessoa">
+      <soap12:operation soapAction="http://temp123.pt/ResEliminaPessoa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResListaPessoas">
+      <soap12:operation soapAction="http://temp123.pt/ResListaPessoas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResExisteReserva">
+      <soap12:operation soapAction="http://temp123.pt/ResExisteReserva" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResCriarEvento">
+      <soap12:operation soapAction="http://temp123.pt/ResCriarEvento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResEliminaEvento">
+      <soap12:operation soapAction="http://temp123.pt/ResEliminaEvento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResListaEventos">
+      <soap12:operation soapAction="http://temp123.pt/ResListaEventos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResEscolherEvento">
+      <soap12:operation soapAction="http://temp123.pt/ResEscolherEvento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CentralServico">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Descricao temporaria</wsdl:documentation>
+    <wsdl:port name="CentralServicoSoap" binding="tns:CentralServicoSoap">
+      <soap:address location="https://localhost:44382/Services/CentralServico.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CentralServicoSoap12" binding="tns:CentralServicoSoap12">
+      <soap12:address location="https://localhost:44382/Services/CentralServico.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
